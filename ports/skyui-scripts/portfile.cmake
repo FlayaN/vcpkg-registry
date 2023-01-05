@@ -1,0 +1,18 @@
+vcpkg_from_github(
+  OUT_SOURCE_PATH SOURCE_PATH
+  REPO schlangster/skyui
+  REF 835428728e2305865e220fdfc99d791434955eb1
+  SHA512 6a2a1849321c45aeee4f73487c7e61b8d84ac17509b2e4f15ac8fcaa7eb9f76a03838fa3e3a4ed01c6c0d0be3f15b668fbdfadf8ca84810df421f03690782b40
+  HEAD_REF master
+)
+
+set(VCPKG_POLICY_EMPTY_INCLUDE_FOLDER enabled)
+set(VCPKG_POLICY_EMPTY_PACKAGE enabled)
+
+file(GLOB HEADER_SCRIPTS
+    "${CURRENT_BUILDTREES_DIR}/src/**/dist/Data/Scripts/Headers/*.psc"
+)
+
+file(COPY ${HEADER_SCRIPTS}
+   DESTINATION "${CURRENT_PACKAGES_DIR}/contrib/papyrus/skyui"
+)
